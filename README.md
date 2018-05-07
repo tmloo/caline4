@@ -1,4 +1,4 @@
-# caline4
+# CALINE4 - Highway Emissions Dispersal Model
 This repository provides the data and resources to generate highway emission dispersal models in the California Bay Area using the CALINE4 program. This project is the beginning of a larger initiative to create a platform agnostic, one-stop-shop, website to generate highway emission dispersal models for all of California. Dispersion models generated can be used as a screening tool for city planners and potentially as a exposure variable for epidemiology studies. 
 
 Instructions:
