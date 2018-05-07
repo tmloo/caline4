@@ -1,1 +1,28 @@
-daf
+#Creating link networks
+
+Generating traffic volume and link geometries
+1. Download your area of interest from "bay area links and receptors.zip." These spatial data were created from:
+    The State Highway Network (SHN) and Postmile System: http://www.dot.ca.gov/hq/tsip/gis/datalibrary/Metadata/StateHighway.html
+    NHPN: https://www.fhwa.dot.gov/planning/processes/tools/nhpn/index.cfm
+2. Acquire traffic volumes (AATD) from: http://www.dot.ca.gov/hq/tsip/gis/datalibrary/Metadata/AADT.html. These are nodes with a long attribute table. Load into QGIS.
+3. Create new field in AATD that represents total traffic volume/link/hr. Open field calculator and create a new field: “traffic volume peak hour” =  “ahead_peak_hour” + “back_peak_hour”
+4. Interpolate along a line using nearest neighbor join to fill in missing values for “traffic volume peak hour” and join with links. use plugin “locate points along line” to get start and end nodes of links to get link geometry
+get X and Y coordinates using field calculator $x and $y.
+5. remove unnecessary fields
+
+Generating emissions factors using EMFAC 2017
+1. Install Microsoft .NET Framework 4.5.2, Visual C++ Redistributable Package 2013 (x64), and MySQL Installer Community Edition before downloading EMFAC2017.
+    Microsoft .NET Framework 4.5.2: https://www.microsoft.com/en-us/download/details.aspx?id=42643
+    C++ Redistributable Package 2013 (x64): https://www.microsoft.com/en-us/download/details.aspx?id=40784
+    MySQL Installer Community Edition: https://dev.mysql.com/doc/refman/5.6/en/mysql-installer.html
+    EMFAC2017: https://www.arb.ca.gov/msei/categories.htm#emfac2017
+2. Because EMFAC2017 only needs county-level average speed, traffic speed was obtained from PeMS. “Export to .xls” was selected. VMT % was converted to VMT decimal which was then multiplied by the speed bins. The sum of products is the average speed. Worst-case scenario temp (F) and humidity (%) used in EMFAC model. 
+    PeMS: http://pems.dot.ca.gov/?dnode=State&content=modeling
+3. Run model to get .csv output. Add the output as a new field in the link network layer.
+
+Exporting link network for CALINE4 processing
+1. Export link layer as a csv named "links." This will include polylines with the following attributes: x coordinate, y coordinate, traffic volume peak hour, emissions factor.
+
+#Creating receptors and their coordinates
+1. Using the spatial data from "bay area links and receptors.zip," get X and Y coordinates using field calculator $x and $y
+2. Export to csv. named "receptors." This will include points with the following attributes: x coordinate, y coordinate.
