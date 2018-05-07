@@ -1,2 +1,3 @@
 # caline4
-guide to generating highway emission dispersal models
+This repository provides the data and resources to generate highway emission dispersal models in California. 
+
