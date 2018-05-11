@@ -4,7 +4,7 @@ This repository provides the data and resources to generate EPA-approved highway
 Instructions:
 1. Download the "bay area links and receptors.zip" and select the area you are interested in.
 2. Reformat the links and receptors dataset by following the "links and receptors formatting guide" instructions.
-3. Read the resulting links and receptor files into the "CALINE4 formatting" python notebook.
+3. Read the resulting links and receptor files into the "CALINE4_PROGRAM.py" python file.
 4. Read the resulting output file into CALINE4 to generate emission dispersal results.
 
 Notes:
