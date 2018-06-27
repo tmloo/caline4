@@ -5,8 +5,8 @@
 
 
 #setting environment and reading in data
-# /Users/reinarau/Desktop/links.csv
-# /Users/reinarau/Desktop/receptors.csv
+# /Users/theo_loo/Desktop/links.csv
+# /Users/theo_loo/Desktop/receptors.csv
 
 #import packages
 import pandas as pd
